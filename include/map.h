@@ -22,5 +22,6 @@ typedef struct map {
 }Map;
 
 int createMap(FILE* file_itd, Map* map);
+Map loadMap(char* ITDname);
 
 #endif
