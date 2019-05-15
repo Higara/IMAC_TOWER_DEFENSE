@@ -35,17 +35,17 @@ int createMap(FILE* file_itd, Map* map){
 	char name[25];
 	fgets(name, 25, file_itd);
 	char* format=strchr(name,'.');
-	if (strcomp(format, ".ppm\n")!=0){
+	if (strcmp(format, ".ppm\n")!=0){
 		fprintf(stderr, "Erreur fichier itd: autre format que ppm\n");
 		return 0;
 	}
-	else (*map).carte=file_itd;
+	else (*map).image=name;
 
 	//test chemin
 	fgets(keyword, 8, file_itd);
 	if(strcmp(keyword, "chemin ")==0){
 		fscanf(file_itd, "%d %d %d\n", &red, &green, &blue);
-		if (red<0 || red>255 || green<0 || green>255 ||blue<0 || blue>255){}
+		if (red<0 || red>255 || green<0 || green>255 ||blue<0 || blue>255){
 			fprintf(stderr, "Erreur fichier itd: couleur chemin\n");
 			return 0;
 		}
@@ -56,5 +56,5 @@ int createMap(FILE* file_itd, Map* map){
 		fprintf(stderr, "Erreur fichier itd: keyword different chemin\n");
 		return 0;
 	}
-	
+
 }
