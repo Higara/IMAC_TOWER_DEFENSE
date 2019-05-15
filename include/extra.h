@@ -10,7 +10,7 @@ typedef struct str_color3ub{
 	unsigned char b;
 } Color;
 
-Color ColorRGB(float r, float g, float b);
+Color colorRGB(float r, float g, float b);
 
 /*Node*/
 typedef struct str_node{
